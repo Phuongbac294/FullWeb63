@@ -1,21 +1,20 @@
 const exp = require('express');
-const Dpipe = require('./Local_modules/pipe_diameter')
-const Qflow = require('./Local_modules/Q_flow');
-const Vflow = require('./Local_modules/V_flow');
-const Vglobe = require('./Local_modules/v_globe');
+const routers = require('./routers/index');
+// const mongoose = require('mongoose');
 
 const app = exp();
 
 const port = 3001;
 app.use(exp.json());
 
-const Da = Dpipe(140, 1, 0.05, 240)
-const Mh = Qflow(500, 1, 25, 0.5415, 49.79);
-const V = Vflow(2010, 1, 25, 0.5415, 49.79);
-const v1 = Vglobe(10);
+app.use('/routers', routers);
+
+
 app.get('/', (rep, res) => {
     res.send(`Hello Web lesson1 `);
 })
+const database = require('./database');
+const db = new database();
 
 app.get('/orders/:orderId/:custId', (req, res) => {
     const { orderId, custId } = req.params;
@@ -38,4 +37,8 @@ app.post('/orders', (req, res) => {
 
 app.listen(port, ()=> {
     console.log(`App running on port ${port}`);
+    db.connect().then((err, result)=>{
+        if (err) throw err;
+        console.log('database is connected');
+    })
 })

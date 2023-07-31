@@ -1,0 +1,36 @@
+const exp = require('express');
+const jwt = require('jsonwebtoken');
+const private = "afgwgjhgagalafakhardfy";
+const UserModel = require('../models/user_model');
+
+const model = new UserModel();
+
+const userRouter = exp.Router();
+
+
+userRouter.get('/', (req, res) => {
+    const user = db.users.find();
+    res.send(user)
+});
+
+userRouter.post('/login', (req, res) => {
+    let {username, password} = req.body;
+    if (!username || !password) {
+        // throw new Error('thieu username or password')  
+        res.send({sucess: false, tokem: "error"}); 
+        // return;
+    } else {
+        model.findByUserAndPassword(username, password).then((data) => {
+            if (data.length > 0) {
+                let token = jwt.sign({username: username, email: result[0].email}, private)
+            res.json({existed: true, token: token});
+            } else {
+                res.status(400).send({message:"login failed"})
+            };
+        })
+
+    }
+})
+
+
+module.exports = userRouter;
