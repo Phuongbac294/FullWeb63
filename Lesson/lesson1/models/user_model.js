@@ -3,7 +3,7 @@ const userSchema = require('../schemas/user_schema')
 
 class UserModel {
     constructor() {
-        this.model = mongoose.model('User', userSchema);
+        this.model = mongoose.model('users', userSchema);
     }
 
     findByUserAndPassword(username, password) {
@@ -11,6 +11,10 @@ class UserModel {
         return query.exec();
     }
 
+    find() {
+        const query = this.model.find();
+        return query.exec();
+    }
 }
 
 module.exports  = UserModel;

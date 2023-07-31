@@ -8,9 +8,9 @@ const model = new UserModel();
 const userRouter = exp.Router();
 
 
-userRouter.get('/', (req, res) => {
-    const user = db.users.find();
-    res.send(user)
+userRouter.get('/', async (req, res) => {
+    const data = await model.find();
+    res.json(data);
 });
 
 userRouter.post('/login', (req, res) => {
@@ -21,6 +21,7 @@ userRouter.post('/login', (req, res) => {
         // return;
     } else {
         model.findByUserAndPassword(username, password).then((data) => {
+            console.log('data', data);
             if (data.length > 0) {
                 let token = jwt.sign({username: username, email: result[0].email}, private)
             res.json({existed: true, token: token});
