@@ -15,7 +15,7 @@ orderRouter.get('/:id', (req, res) => {
     model.get(id).then(data => { res.send(data)})
 })
 
-orderRouter.post('/add', async (req, res) => {
+orderRouter.put('/add', async (req, res) => {
     const {data} = await req.body;
     console.log(data);
     await model.create(data);

@@ -7,6 +7,10 @@ class BaseModel {
         this.model = mongoose.model(name, schema);
     }
 
+    find() {
+        return this.model.find().exec();
+    }
+
     get(id) {
         let query = this.model.findById(id);
         return query.exec();
