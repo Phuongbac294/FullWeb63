@@ -1,13 +1,21 @@
 const mongoose = require('mongoose');
 const userSchema = require('../schemas/user_schema')
-const BaseModel = require('./base_model')
+// const BaseModel = require('./base_model')
 
-class UserModel extends BaseModel {
-    constructor() {
-        super();
-        this.init("users", userSchema);
-        // this.model = mongoose.model('users', userSchema);
+class UserModel {
+    constructor() {}
+
+    init() {
+        this.model = mongoose.model('users', userSchema);
     }
+       
+    getAll() {
+        const query = this.model.find();
+        return query.exec();
+    }
+
+
+    
 
     findByUsername(username) {
         const query = this.model.findOne({ username: username});
@@ -18,10 +26,6 @@ class UserModel extends BaseModel {
     //     return query.exec();
     // }
 
-    // find() {
-    //     const query = this.model.find();
-    //     return query.exec();
-    // }
 }
 
-module.exports  = new UserModel;
+module.exports  = UserModel;

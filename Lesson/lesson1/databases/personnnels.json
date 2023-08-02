@@ -1,0 +1,32 @@
+[
+    {
+        "id": "anphu01",
+        "username": "phuongns",
+        "password": "phuong123",
+        "email": "phuongns@gmail.com",
+        "phone": "0914999025 ",
+        "firstname": "nguyen si",
+        "lastname": "phuong",  
+        "citizenId": {}
+    },
+    {
+        "id": "anphu02",
+        "username": "khiemtv",
+        "password": "khiem123",
+        "email": "khiemtv@gmail.com",
+        "phone": "0914999030 ",
+        "firstname": "tran van",
+        "lastname": "khiem",  
+        "citizenId": {}
+    },
+    {
+        "id": "anphu03",
+        "username": "hant",
+        "password": "ha123",
+        "email": "hant@gmail.com",
+        "phone": "0914999026 ",
+        "firstname": "nguyen thi",
+        "lastname": "ha",  
+        "citizenId": {}
+    }
+]

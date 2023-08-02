@@ -1,17 +1,18 @@
 const exp = require('express');
-// const UserModel = require('../models/user_model');
-const controller = require('../controllers/user_controller');
+const UserModel= require('../models/user_model');
+// const controller = require('../controllers/user_controller');
 // const validateToken = require('../middleware/validateToken')
-// const model = new UserModel();
+const model = new UserModel();
 
 const userRouter = exp.Router();
 
 userRouter.get('/', (req, res) => {
-    res.send("welcome username")
+    const userData = model.getAll()
+    res.json(userData);
 })
 
-userRouter.get('/add', controller.getAll);
-userRouter.post('/login', controller.login);
+// userRouter.get('/add', controller.getAll);
+// userRouter.post('/login', controller.login);
 
 // userRouter.get('/', async (req, res) => {
 //     const data = await model.find();

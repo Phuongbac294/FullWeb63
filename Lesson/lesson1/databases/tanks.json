@@ -1,0 +1,47 @@
+[
+    {   
+        "id": "tank1", 
+        "name": "Bồn số 1", 
+        "type": "hinh tru",
+        "diameter": 3100,
+        "length": 8000,
+        "volume": 99,
+        "parameters": {}
+    },
+    {   
+        "id": "tank2", 
+        "name": "Bồn số 2", 
+        "type": "hinh tru",
+        "diameter": 3100,
+        "length": 8000,
+        "volume": 99,
+        "parameters": {}
+    },
+    {   
+        "id": "tank3", 
+        "name": "Bồn số 3", 
+        "type": "hinh tru",
+        "diameter": 3100,
+        "length": 8000,
+        "volume": 99,
+        "parameters": {}
+    },
+    {   
+        "id": "tank4", 
+        "name": "Bồn số 4", 
+        "type": "hinh tru",
+        "diameter": 3100,
+        "length": 8000,
+        "volume": 99,
+        "parameters": {}
+    },
+    {   
+        "id": "tank5", 
+        "name": "Bồn số 5", 
+        "type": "hinh tru",
+        "diameter": 3100,
+        "length": 8000,
+        "volume": 99,
+        "parameters": {}
+    }
+]
