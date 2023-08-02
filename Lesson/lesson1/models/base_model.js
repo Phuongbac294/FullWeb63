@@ -7,7 +7,7 @@ class BaseModel {
         this.model = mongoose.model(name, schema);
     }
 
-    find() {
+    getAll() {
         return this.model.find().exec();
     }
 

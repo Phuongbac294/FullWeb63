@@ -4,15 +4,9 @@ const PersonnelSchema = new mongoose.Schema({
     password : String,
     firstname : String,
     lastname : String,
-    email: String, 
+    email: String,
     phone: Number,
-    brithday: Date,
-    address: {
-        village: String,
-        ward: String,
-        city: String,
-        country: String
-    }
+    citizenId: Object
   
 })
 

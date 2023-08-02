@@ -6,7 +6,7 @@ class PersonnelModel extends BaseModel {
     constructor(){
         super();
         this.init('personnels', PersonnelSchema);
-    }
+    }   
 }
 
 module.exports = new PersonnelModel;
