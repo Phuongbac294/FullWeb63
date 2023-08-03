@@ -31,12 +31,11 @@ class UserController {
             res.send({ existed: false, token: "", message: "User does not exist" });
           }
         }
-      };
+    };
 
     create = async (req, res) => {
     let user = req.body;
     user.password = this.hashPassword(user.password); // mã hóa password
-
     let result = await model.create(user);
     res.send(result);
     };

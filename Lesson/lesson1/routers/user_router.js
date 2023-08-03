@@ -7,7 +7,7 @@ const model = new UserModel();
 const userRouter = exp.Router();
 
 userRouter.get('/', (req, res) => {
-    const userData = model.getAll()
+    const userData = model.getAll();
     res.json(userData);
 })
 
