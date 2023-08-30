@@ -4,12 +4,15 @@ const UserModel= require('../models/user_model');
 // const validateToken = require('../middleware/validateToken')
 const model = new UserModel();
 
+const bcrypt = require('bcrypt');
+
 const userRouter = exp.Router();
 
 userRouter.get('/', (req, res) => {
     const userData = model.getAll();
     res.json(userData);
 })
+
 
 // userRouter.get('/add', controller.getAll);
 // userRouter.post('/login', controller.login);
