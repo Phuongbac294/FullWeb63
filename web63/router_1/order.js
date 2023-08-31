@@ -1,4 +1,5 @@
 const express = require('express');
+const { MongoClient } = require('mongodb');
 
 const router = express.Router();
 
@@ -24,4 +25,34 @@ router.post('/orders', (req, res) =>{
     res.json({data: data, msg: `post method of order`})
 })
 
+router.get('/aggregate', async (req, res) =>{
+    const agg = [
+        {
+          '$match': {
+            'size': `${req.query.size}`,
+          }
+        }, {
+          '$group': {
+            '_id': '$name', 
+            'totalQuantily': {
+              '$sum': '$quantity'
+            }, 
+            'averageOrderPrice': {
+              '$avg': '$price'
+            }
+          }
+        }
+      ];
+
+      const client = await MongoClient.connect(
+        'mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net/test',
+        { useNewUrlParser: true, useUnifiedTopology: true }
+      );
+      const coll = client.db('Web63').collection('orders');
+      const cursor = coll.aggregate(agg);
+      const result = await cursor.toArray();
+      await client.close();
+
+      res.send(result);
+})
 module.exports = router;

@@ -1,6 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient }= require('mongodb');
 
 const praviter_Key = "galkghakfdklgrgldkaal"
 
@@ -11,11 +11,11 @@ router.get('/', (req, res) => {
     res.send('Welcome to the user api');
 })
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     let {username, password} = req.body;
     if (!username || !password) { res.json({sucess: false, token: ""}) } // ktra username, password nhap khong dung cu phat
     else {
-        MongoClient.connect("mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net/", (err, client)   => {
+        await MongoClient.connect("mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net/test", (err, client)   => {
             if (err)  throw err; //truyền dữ liệu vào mongodb, ktra dữ liệu
             const db = client.db("Web63"); // vào dữ liệu database
 
@@ -35,8 +35,8 @@ router.post('/login', (req, res) => {
     }
 });
 
-router.put('/add', (req, res) => {
-    MongoClient.connect('mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net/')
+router.put('/add', async (req, res) => {
+    await MongoClient.connect('mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net/test')
     async (err, client) => {
         if (err) {res.send("Couldn't connect to Mongo")}
         const db = client.db('Web63');
