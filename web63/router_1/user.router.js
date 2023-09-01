@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
     let {username, password} = req.body;
     if (!username || !password) { res.json({sucess: false, token: ""}) } // ktra username, password nhap khong dung cu phat
     else {
-        await MongoClient.connect("mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net/test", (err, client)   => {
+        await MongoClient.connect("mongodb+srv://Web63_atlas:Web63atlas@cluster0.wntgsqq.mongodb.net", (err, client)   => {
             if (err)  throw err; //truyền dữ liệu vào mongodb, ktra dữ liệu
             const db = client.db("Web63"); // vào dữ liệu database
 
