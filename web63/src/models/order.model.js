@@ -23,9 +23,10 @@ class OrderModel {
        await this.model.create(data)
     }
 
-    async updateOrder(id, data) {
-        await this.model.updateOne(id, data)
-    }
+    // async updateOrder(id, data) {
+        
+    //     await this.model.updateOne({_id: id}, data)
+    // }
 }
 
 module.exports = OrderModel;

@@ -25,12 +25,12 @@ router.post('/create', async (req, res) => {
     res.send('created order')
 })
 
-router.put('/update/', async (req, res) => {
-    // let id = await req.params;
-    let {_id, data }= await req.body;
-    console.log( id, data);
-    await model.updateOrder(_id , data);
-    res.send('updated order') 
-})
+// router.put('/update/:id', async (req, res) => {
+//     let id = req.params;
+//     let {data}= await req.body;
+//     console.log( id, data);
+//     await model.updateOrder(id , data);
+//     res.send('updated order') 
+// })
 
 module.exports = router;
